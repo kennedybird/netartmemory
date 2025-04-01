@@ -11,17 +11,101 @@ body {
   grid-template-rows: repeat(4, 2fr);
 }
 
-#moosetracks, #goosetracks, #mousetracks, #horsetracks {
-  width: 80%;
-  height: 80%;
+/* Styling for the Artboard images */
+#moosetracks, #goosetracks, #mousetracks, #horsetracks, #rabbittracks {
+  width: 75%;
+  height: 75%;
   object-fit: cover;
   transition: transform 0.3s ease;
+  margin-left: 167px;
+}
+
+/* Tilt effect when hovered */
+#rabbittracks:hover {
+  transform: rotate(5deg); /* Slight tilt when hovered */
 }
 
 #moosetracks:hover,
 #goosetracks:hover,
 #mousetracks:hover,
 #horsetracks:hover {
-  transform: rotate(5deg);
+  transform: rotate(5deg); /* Slight tilt for all images */
 }
+
+/* Floating Max image */
+#max {
+  width: 150px;  /* Adjust the size of the floating image */
+  height: 150px;
+  object-fit: cover;
+  position: absolute;  /* Make it position relative to the body */
+  animation: floatAround 10s ease-in-out infinite; /* Animation to float */
+}
+
+/* Keyframe animation for floating Max */
+@keyframes floatAround {
+  0% {
+    top: 10%;  /* Starting position */
+    left: 10%; /* Starting position */
+    transform: rotate(0deg); /* No rotation */
+  }
+  25% {
+    top: 20%; /* Move downwards */
+    left: 50%; /* Move to the right */
+    transform: rotate(20deg); /* Slight rotation */
+  }
+  50% {
+    top: 50%; /* Move down further */
+    left: 80%; /* Move further to the right */
+    transform: rotate(0deg); /* Back to original rotation */
+  }
+  75% {
+    top: 80%; /* Move closer to the bottom */
+    left: 30%; /* Move back left */
+    transform: rotate(-20deg); /* Slight negative rotation */
+  }
+  100% {
+    top: 10%;  /* Reset back to top */
+    left: 10%; /* Reset back to original position */
+    transform: rotate(0deg); /* Reset rotation */
+  }
+}
+
+/* Floating boat image */
+#max2 {
+  width: 150px;  /* Adjust the size of the boat image */
+  height: 150px;
+  object-fit: cover;
+  position: absolute;  /* Position relative to the body */
+  animation: floatAroundBoat 12s ease-in-out infinite; /* Animation to float */
+}
+
+/* Keyframe animation for floating boat */
+@keyframes floatAroundBoat {
+  0% {
+    top: 200%;  /* Start further down */
+    left: 180%; /* Start near the middle of Artboard 3 */
+    transform: rotate(0deg); /* No rotation */
+  }
+  25% {
+    top: 85%; /* Move downwards */
+    left: 70%; /* Move to the right */
+    transform: rotate(10deg); /* Slight rotation */
+  }
+  50% {
+    top: 90%; /* Move further down */
+    left: 90%; /* Move to the right */
+    transform: rotate(0deg); /* Back to original rotation */
+  }
+  75% {
+    top: 95%; /* Move closer to the bottom */
+    left: 80%; /* Move to the left */
+    transform: rotate(-10deg); /* Slight negative rotation */
+  }
+  100% {
+    top: 200%;  /* Reset back to original top position */
+    left: 180%; /* Reset back to original left position */
+    transform: rotate(0deg); /* Reset rotation */
+  }
+}
+
 
