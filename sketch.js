@@ -13,7 +13,8 @@ function setup() {
 }
 
 function draw() {
-  background(bgImg);
+  background(0);
+  image(bgImg, 0, 0); 
 
   image(circleImg, xpos, height / 2 - circleImg.height / 2);
 
