@@ -1,5 +1,5 @@
 let bgImage;
-let fullText = "I want to eat my dinner without feeling like I'll grow!";
+let fullText = "I want to eat my dinner without feeling like I'd grow!";
 let typedText = "";
 let charIndex = 0;
 let lastTime = 0;
@@ -17,7 +17,6 @@ function setup() {
 function draw() {
   background(bgImage);
 
-  // Dynamically calculate font size based on canvas size
   let maxFontSize = min(width, height) / 15; // Adjust 15 to control max text size
   textSize(maxFontSize);
 
@@ -29,5 +28,7 @@ function draw() {
   }
 
   textFont('pf-scandal'); 
-  text(typedText, width / 2, height / 2); // Center the text both horizontally and vertically
+  text(typedText, width / 3, height / 3, 500, 500); 
 }
+
+
