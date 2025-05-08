@@ -46,8 +46,11 @@ function draw() {
 function mousePressed() {
   if (currentImageIndex < appleImages.length - 1) {
     currentImageIndex++;
+  } if else {
+    window.location.href = "page4.html"; // Ensure page3.html exists in the same folder
   } else {
-    // When last image is shown and clicked, go to Page 4
-    window.location.href = "page4.html"; //
+    console.log("❌ Clicked outside text area");
   }
 }
+
+
