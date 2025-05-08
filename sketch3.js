@@ -5,22 +5,17 @@ let typedText = "";
 let charIndex = 0;
 let typingSpeed = 110;
 let lastTime = 0;
-let textX, textY, textWidthVal;
 
 function preload() {
-  // Load apple images one by one
-  appleImages[0] = loadImage("apple.png");
-  appleImages[1] = loadImage("apple_1.png");
-  appleImages[2] = loadImage("apple_2.png");
-  appleImages[3] = loadImage("apple_3.png");
-  appleImages[4] = loadImage("apple_4.png");
-  appleImages[5] = loadImage("apple_5.png");
-  appleImages[6] = loadImage("apple_6.png");
-  appleImages[7] = loadImage("apple_7.png");
-  appleImages[8] = loadImage("apple_8.png");
+  // Load apple images
+  for (let i = 0; i < 9; i++) {
+    appleImages[i] = loadImage(`apple_${i}.png`);
+  }
 
-  // Load font if available
-  // myFont = loadFont("assets/pf-scandal.ttf"); // Ensure the font file exists and the path is correct
+  // Or use specific file names if different:
+  // appleImages[0] = loadImage("apple.png");
+  // appleImages[1] = loadImage("apple_1.png");
+  // ...
 }
 
 function setup() {
@@ -28,11 +23,11 @@ function setup() {
   imageMode(CENTER);
   textAlign(CENTER, CENTER);
   textSize(24);
-  textFont('pf-scandal');
+  textFont('pf-scandal'); // Make sure this font is loaded via CSS or linked properly
 }
 
 function draw() {
-  background('#FCFBF4');
+  background('#FDF7E3');
 
   // Draw current apple image
   image(appleImages[currentImageIndex], width / 2, height / 2);
@@ -44,26 +39,15 @@ function draw() {
     lastTime = millis();
   }
 
-  // Get the text dimensions and position
-  textX = width / 2;
-  textY = height - 50;
-  textWidthVal = textWidth(typedText); // Get the width of the typed text
-
-  // Check if the mouse is hovering over the text
-  if (isMouseOverText(textX - textWidthVal / 2, textY - 12, textWidthVal, 24)) {
-    fill(34, 139, 34); // Change text color to forest green on hover
-  } else {
-    fill(0); // Normal black text color
-  }
-
-  text(typedText, textX, textY); // Draw text near bottom
-}
-
-function isMouseOverText(x, y, w, h) {
-  return mouseX > x && mouseX < x + w && mouseY > y - h && mouseY < y + h;
+  fill(0); // Black text
+  text(typedText, width / 2, height - 50); // Draw text near bottom
 }
 
 function mousePressed() {
-  currentImageIndex = (currentImageIndex + 1) % appleImages.length;
+  if (currentImageIndex < appleImages.length - 1) {
+    currentImageIndex++;
+  } else {
+    // When last image is shown and clicked, go to Page 4
+    window.location.href = "page4.html"; //
+  }
 }
-

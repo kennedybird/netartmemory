@@ -17,7 +17,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   textAlign(CENTER, CENTER);
   textFont('pf-scandal');
-  textSize(28); // Slightly larger text
+  textSize(28);
   imageMode(CENTER);
 }
 
@@ -36,8 +36,9 @@ function draw() {
     drawWidth = height * imgAspect;
   }
 
-  // Scale image down to 90% size
-  image(bgImage, width / 2, height / 2, drawWidth * 0.9, drawHeight * 0.9);
+  // Draw background image at 60% scale
+  let scaleFactor = 0.6;
+  image(bgImage, width / 2, height / 2, drawWidth * scaleFactor, drawHeight * scaleFactor);
 
   // Typewriter effect
   if (millis() - lastTime > typingSpeed && charIndex < fullText.length) {
@@ -48,17 +49,19 @@ function draw() {
 
   // Get the dimensions of the text
   textX = width / 2;
-  textY = height - 50;
+  textY = height - 30;
   textWidthVal = textWidth(typedText);
 
-  // Check if the mouse is hovering over the text
+  // Hover effect
   if (isMouseOverText(textX - textWidthVal / 2, textY - 12, textWidthVal, 24)) {
-    fill(34, 139, 34); // Forest green text color on hover
+    fill(34, 139, 34); // Forest green
+    cursor(HAND);
   } else {
-    fill(255); // White text color when not hovered
+    fill(0); // Black text
+    cursor(ARROW);
   }
 
-  text(typedText, textX, textY); // Draw the text
+  text(typedText, textX, textY);
 }
 
 function isMouseOverText(x, y, w, h) {
@@ -71,9 +74,12 @@ function mousePressed() {
   let x = width / 2 - boxWidth / 2;
   let y = height - 50 - boxHeight / 2;
 
+  // Check if the click was inside the bounds of the text box
   if (isMouseOverText(x, y, boxWidth, boxHeight)) {
     console.log("✅ Clicked on text — navigating to page3.html");
-    window.location.href = "page3.html";
+
+    // Use the correct file path to your next page
+    window.location.href = "page3.html"; // Ensure page3.html exists in the same folder
   } else {
     console.log("❌ Clicked outside text area");
   }
