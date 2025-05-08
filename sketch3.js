@@ -47,7 +47,7 @@ function mousePressed() {
   if (currentImageIndex < appleImages.length - 1) {
     currentImageIndex++;
   } if else {
-    window.location.href = "page4.html"; // Ensure page3.html exists in the same folder
+    window.location.href = "https://kennedybird.github.io/netartmemory/page4.html"; // Ensure page3.html exists in the same folder
   } else {
     console.log("❌ Clicked outside text area");
   }
