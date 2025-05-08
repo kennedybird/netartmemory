@@ -17,7 +17,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   textAlign(CENTER, CENTER);
   textFont('pf-scandal');
-  textSize(28);
+  textSize(35);
   imageMode(CENTER);
 }
 

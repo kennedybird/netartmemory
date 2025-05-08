@@ -12,10 +12,8 @@ function preload() {
     appleImages[i] = loadImage(`apple_${i}.png`);
   }
 
-  // Or use specific file names if different:
-  // appleImages[0] = loadImage("apple.png");
-  // appleImages[1] = loadImage("apple_1.png");
-  // ...
+  // Optional: log to make sure all images loaded
+  console.log("✅ Apple images loaded:", appleImages.length);
 }
 
 function setup() {
@@ -23,11 +21,11 @@ function setup() {
   imageMode(CENTER);
   textAlign(CENTER, CENTER);
   textSize(24);
-  textFont('pf-scandal'); // Make sure this font is loaded via CSS or linked properly
+  textFont('pf-scandal'); // Ensure font is correctly linked in HTML or CSS
 }
 
 function draw() {
-  background('#FDF7E3');
+  background('white');
 
   // Draw current apple image
   image(appleImages[currentImageIndex], width / 2, height / 2);
@@ -46,11 +44,11 @@ function draw() {
 function mousePressed() {
   if (currentImageIndex < appleImages.length - 1) {
     currentImageIndex++;
-  } if else {
-    window.location.href = "https://kennedybird.github.io/netartmemory/page4.html"; // Ensure page3.html exists in the same folder
   } else {
-    console.log("❌ Clicked outside text area");
+    // When last image is shown and clicked, go to Page 4
+    window.location.href = "https://kennedybird.github.io/netartmemory/page4.html";
   }
 }
+
 
 

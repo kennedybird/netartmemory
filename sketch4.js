@@ -1,9 +1,9 @@
 let bgImage;
-let fullText = "I do not want to hurt you\nbut I'm scared it's in my bones";
+let fullText = "I do not want to hurt you but I'm scared it's in my bones";
 let typedText = "";
 let charIndex = 0;
 let lastTime = 0;
-let typingSpeed = 110; // milliseconds between characters
+let typingSpeed = 110;
 let imgAspect;
 
 function preload() {
@@ -13,30 +13,31 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight); // Fullscreen canvas
+  createCanvas(windowWidth, windowHeight);
   textAlign(CENTER, CENTER);
   textFont('pf-scandal');
-  textSize(22); // Smaller text size like your other code
+  textSize(50); // Larger text
   imageMode(CENTER);
 }
 
 function draw() {
-  background('#FDF7E3'); // Slightly warmer cream background
+  background('white');
 
-  // Calculate proportional image size based on full canvas width
+  // Resize background image proportionally
   let drawWidth = width;
   let drawHeight = width / imgAspect;
 
   image(bgImage, width / 2, height / 2, drawWidth, drawHeight);
 
-  // Typing effect
+  // Typewriter effect
   if (millis() - lastTime > typingSpeed && charIndex < fullText.length) {
     typedText += fullText.charAt(charIndex);
     charIndex++;
     lastTime = millis();
   }
 
-  fill(0); // Black text
-  text(typedText, width / 2, height - 50);
+  fill(0);
+  text(typedText, width / 2, height - 40); // Positioned near bottom
 }
+
 
